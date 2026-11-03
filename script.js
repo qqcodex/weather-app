@@ -1,3 +1,7 @@
+// Runs when user clicks Search button or presses Enter key
+
+// "async" keyword allows the use of "await" inside the function, which pauses execution until the promise is resolved
+
 async function fetchWeather() {
   const searchInput = document.querySelector('#search').value.trim();
   const weatherDataSection = document.querySelector('#weather-data');
@@ -60,3 +64,9 @@ async function fetchWeather() {
     weatherDataSection.innerHTML = `<p>Something went wrong. Check your connection and try again.</p>`;
   }
 }
+
+document.querySelector('#search').addEventListener('keydown', (e) => {
+if (e.key === 'Enter') {
+    fetchWeather();
+  }
+    });
